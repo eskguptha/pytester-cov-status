@@ -4,6 +4,7 @@ Copyright (c) 2021, Santhosh Emmadi
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org)
 
+
 Enforce minimum pytest coverage by individual files, total, or both. Option to exclude directories and files as well.
 
 ## Python Packages Used
@@ -25,8 +26,6 @@ Enforce minimum pytest coverage by individual files, total, or both. Option to e
   - necessary to install requirements to run `pytest` inside action
 - `cov-omit-list`
   - list of directories and/or files to ignore
-- `cov-threshold-single`
-  - fail if any single file coverage is less than threshold
 - `cov-threshold-total`
   - fail if the total coverage is less than threshold
 
@@ -74,7 +73,6 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      COVERAGE_SINGLE: 60
       COVERAGE_TOTAL: 60
 
     steps:
@@ -91,7 +89,7 @@ jobs:
 
     - name: pytester-cov
       id: pytester-cov
-      uses: eskguptha/pytester-cov@eskguptha
+      uses: eskguptha/pytester-cov@master
       with:
         pytest-root-dir: '.'
         cov-omit-list: 'test/*, temp/main3.py, temp/main4.py'
@@ -114,3 +112,6 @@ jobs:
         exit 1
 
 ```
+
+# Reference Link
+https://github.com/alexanderdamiani/pytester-cov
