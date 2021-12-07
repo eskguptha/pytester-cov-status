@@ -89,7 +89,7 @@ jobs:
 
     - name: pytester-cov
       id: pytester-cov
-      uses: eskguptha/pytester-cov@master
+      uses: eskguptha/pytester-cov@main
       with:
         pytest-root-dir: '.'
         cov-omit-list: 'test/*, temp/main3.py, temp/main4.py'
