@@ -43,7 +43,7 @@ output_table_title=''
 output_table_contents=''
 file_covs=()
 total_cov=0
-
+echo "output $output";
 for x in $output; do
   if [[ $x =~ ^-+$ && $x != '--' ]]; then
     if [[ "$parse_title" = false && "$parse_contents" = false ]]; then
@@ -106,14 +106,14 @@ for x in $output; do
 
   output_table+="$x"
 done
-echo "output_table : $output_table";
+
 # remove last file-cov b/c it's total-cov
 unset 'file_covs[${#file_covs[@]}-1]'
 
 # remove first file-cov b/c it's table header
 file_covs=("${file_covs[@]:1}") #removed the 1st element
 
-echo "file_covs : $file_covs";
+
 # check if total_cov exceeds threshold
 if [ "$total_cov" -lt $5 ]; then
   cov_threshold_total_fail=true
